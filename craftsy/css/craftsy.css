@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    background-color: #BCF2FF;
+    margin: 0;
+    font-family: "Roboto",
+        sans-serif;
+}
+
+#navbar {
+    text-align: left;
+    font-size: 1rem;
+    margin: 3rem 4rem 4rem 8rem;
+    /* margin-left: 4rem; */
+    width: 960px;
+    /* position: fixed; */
+    /* right: 0; */
+    /* left: 0; */
+    padding: 1rem;
+    background-color: #EE5128;
+}
+
+#navbar a {
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 5rem;
+}
+
+#navbar a:hover {
+    text-decoration: none;
+    color: #534c4c;
+}
+
+.logo {
+    position: absolute;
+    top: 17px;
+    left: 110px
+}
+
+/* -------------------------------- GRID -------------------------------- */
+
+.grid-t {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 960px;
+    margin: auto auto;
+    background-color: #ffffff;
+}
+
+.grid-t>div {
+    position: relative;
+    margin: 10px;
+}
+
+.grid-t .free {
+    position: absolute;
+    width: 40px;
+    top: 0px;
+    left: 240px;
+}
+
+.grid-t label {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 300px;
+    text-align: center;
+    background-color: hsla(0, 3%, 6%, 0.63);
+    color: #ffffff;
+}
+
+
+.grid-t button {
+    position: absolute;
+    top: 150px;
+    left: 110px;
+    padding: 0.4rem;
+    border-color: red;
+    background-color: red;
+    color: #ffffff;
+}
+
+.grid-t button:hover{
+    color: rgba(202, 157, 157, 0.897)
+}

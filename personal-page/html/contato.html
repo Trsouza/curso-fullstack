@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Contato</title>
+</head>
+
+<body>
+    <header>
+        <div id="navbar">
+            <a href="../index.html">Início</a>
+            <a href="contato.html">Contatos</a>
+            <a href="hobbies.html">Hobbies</a>
+        </div>
+    </header>
+
+    <main id="formulario">
+        <h2>Formulário de Contato</h2>
+        <div class="decoracao">
+            <div class="imagem"><img src="/img/email.png" alt="" width="250"></div>
+            <form action="" method="post">
+                <div class="margem">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" value="" required />
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" name="sobrenome" value="" required />
+                </div>
+
+                <div class="margem">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value="" required />
+
+                    <label for="assunto">Assunto da mensagem</label>
+                    <select name="assunto">
+                        <option value="duvida">Dúvida</option>
+                        <option value="sugestao">Sugestão</option>
+                        <option value="outros">Outro</option>
+                    </select>
+                </div>
+
+                <div class="margem">
+                    <label for="genero">Gênero</label></br>
+
+                    <input type="radio" id="feminino" name=genero value="Feminino">
+                    <label for="feminino" class="cor-input">Feminino</label><br>
+                    <input type="radio" id="masculino" name=genero value="Masculino">
+                    <label for="masculino">Masculino</label><br>
+                    <input type="radio" id="outro" name=genero value="outro">
+                    <label for="outro">Prefiro não responder</label><br>
+
+                    <label for="passatempo">Passatempo</label></br></br>
+
+                    <input type="checkbox" id="viajar" name="viajar" value="Viajar">
+                    <label for="viajar"> Viajar</label><br>
+                    <input type="checkbox" id="filmes" name="filmes" value="Filmes">
+                    <label for="filmes"> Assirtir Filmes</label><br>
+                    <input type="checkbox" id="poker" name="poker" value="Poker">
+                    <label for="poker"> Jogar Poker</label><br>
+                    <input type="checkbox" id="culinaria" name="culinaria" value="Culinaria">
+                    <label for="culinaria">Confeitaria</label><br>
+                </div>
+
+                <div class="margem">
+                    <!-- <input type="text" name="comentarios" value="" required /> -->
+                    <textarea placeholder="Comentários" name="comentario" id="comentario" cols="122" rows="5" class="comentario" required></textarea>
+                </div>
+
+                <div class="margem centralizar">
+                    <button type="reset" name="limpar" class="contorno-bt margem-r">LIMPAR</button>
+                    <button type="submit" name="enviar" class="cor-bt-laranja">ENVIAR</button>
+                </div>
+            </form>
+
+        </div>
+    </main>
+</body>
+
+</html>

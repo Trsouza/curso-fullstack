@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    background-image: url(../img/fundo.png);
+    /* background: linear-gradient(rgba(255, 255, 255, 0.651), rgba(255, 255, 255, 0.623)),
+        url(../img/fundo.jpg) repeat; */
+    margin: 0;
+}
+
+#navbar {
+    text-align: right;
+    font-size: 1rem;
+    /* position: fixed; */
+    right: 0;
+    padding: 1rem;
+    background-color: #FFBAB3;
+    /* background-color: #F5BDC9; */
+    /* margin: 0; */
+}
+
+#navbar a {
+    letter-spacing: 0.05rem;
+    margin-right: .4rem;
+    text-decoration: none;
+    color: #434646;
+}
+
+#navbar a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    color: #575B5B;
+
+}
+
+h3 {
+    text-decoration: underline;
+    font-style: normal;
+    color: #575B5B;
+}
+
+mark {
+    background-color: #FFBAB3;
+}
+
+em,
+strong {
+    color: #FF6857;
+}
+
+.decoracao {
+    padding: 30px;
+    width: 960px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: dashed 5px #CBCDCD;
+    /* border: #6A7044; */
+    /* border-style: dashed; */
+    /* border-width: 5px; */
+    box-shadow: 9px 7px 5px rgba(146, 179, 179, 0.534); /* Efeito na borda */
+}
+
+.decoracao p {
+    text-align: justify;
+    line-height: 23px;
+}
+
+
+.destaque {
+    font-size: 22px;
+    color: #575B5B;
+    background-color: #E5E6E6;
+}
+
+#cabecalho {
+    background-color: #ffffff;
+}
+
+#perfil {
+    background-color: #E5E6E6;
+    /* background-color: #D5D8C0; */
+}
+
+#dados, #trabalhos {
+    background-color: #FFF1F0;
+}
+
+#dados a {
+    color: #FF6857;
+    /* font-size: 1rem; */
+}
+
+#dados a:hover {
+    color: #575B5B;
+}
+
+#dados li {
+    color: #73d4ba;
+}
+
+#formacao {
+    background-color: #E5E6E6;
+}
+
+#experiencia {
+    background-color: #ffffff;
+}
+
+#rodape {
+    text-align: center;
+    padding: .5rem 2rem;
+    background-color: #575B5B;
+}
+
+#rodape a {
+    color: #ffffff;
+    margin-right: .5rem;
+    font-size: 1.5rem;
+}
+
+#rodape a:hover {
+    color: #FF6857;
+}
+
+.voltar {
+    width: 30px;
+    height: 30px;
+    background-color: #FF8D80;
+    right: 10px;
+    bottom: 8px;
+    position: fixed
+}
+
+.voltar i:hover {
+    color: #676C6C
+}
+
+
+
+
+/* ------------------------------------ Hobbies--------------------------------------- */
+
+h2 {
+    color: rgba(36, 37, 37, 0.719);
+    text-align: center;
+}
+
+.contornos {
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titulo {
+    width: 960px;
+}
+
+.links {
+    width: 360px;
+
+}
+
+.links a {
+    text-decoration: none;
+}
+
+.links a:hover {
+    font-size: large;
+    color: #FF6857;
+}
+
+.imagens {
+    width: 360px;
+}
+
+
+.imagens img:hover {
+    border-radius: 20px;
+    transition: 0.7s ease-in;
+    opacity: 1;
+}
+
+.rodape {
+    width: 960px;
+    text-align: center;
+    padding: .5rem 2rem;
+    background-color: #575B5B;
+}
+
+.rodape p {
+    font-size: .8rem;
+    color: #F2F3F3;
+}
+
+/* * {
+    box-sizing: border-box;
+} */
+
+
+
+
+/* --------------------------------- Contato ---------------------------------- */
+
+.margem {
+    margin: 0.5rem 0;
+}
+
+.margem-r {
+    margin: 0 1.5rem;
+}
+
+.centralizar {
+    text-align: center;
+}
+
+input:focus {
+    background-color: rgb(251, 240, 240);
+}
+
+.comentario {
+    resize: vertical;
+}
+
+button {
+    border-radius: 20px;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+.cor-bt-laranja {
+    background-color: #FFBAB3;
+}
+
+.contorno-bt {
+    border-color: #A3F8E2;
+}
+
+.imagem {
+    width: 200px;
+    height: 200px;
+    position: absolute; /*  (absolute) toma como base o pai, para poder se posicionar */
+    top: 150px;
+    right: 220px;
+    /* bottom: 20px; */
+    /*z-index: 0;*/
+
+}
