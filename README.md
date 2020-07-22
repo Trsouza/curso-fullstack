@@ -2,9 +2,8 @@
   <img src="https://i.imgur.com/uVzNNGF.jpg"/>
 </p>
 
-A **Digital House** em parceria com o **Santander** está promovendo o curso de Full Stack Java. Este curso tem como objetivo formar profissionais **Desenvolvedores Full Stack**, focados em aplicações com linguagem JAVA e utilização do framework Spring.
+A [Digital House](https://www.digitalhouse.com/br/) em parceria com o  [Santander](https://www.santander.com.br/) estão promovendo o curso de Full Stack Java. Esse curso tem como objetivo formar **Desenvolvedores Full Stack**, focados em aplicações web, utilizando a linguagem JAVA e o framework Spring.
 
+Essa formação terá duração de cinco meses, divididos em seis módulos onde serão abordados desde conceitos básicos de programação, html e css até conceitos mais avançados envolvendo spring e Web Services. O objetivo final deste curso é entregar um sistema que incorpore os principais conceitos vistos em sala de aula.
 
-Este repositório é direcionado para armazenar os códigos das atividades realizadas no decorrer deste curso.
-
-A programação prevista, abordará desde os conceitos básicos de programação, html e css até conceitos mais avançados envolvendo spring e Web Services. Tendo como objetivo final o desenvolvimento de um sistema integrador, envolvendo todos os conceitos vistos em aula.
+Neste repositório será armezenado os códigos desenvolvidos no decorrer desse curso.
