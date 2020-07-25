@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    background-image: url(../img/img-noise-1200x900.png);
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0px;
+}
+
+header img {
+    border-radius: 50%;
+    border: solid 1px #a5a5a3;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin: 40px auto 20px auto;
+}
+
+nav {
+    /* Ao colocar essa propriedade, foi possível também deixar todos os menus do mesmo tamanho */
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    width: 145px;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 15px;
+    color: #a5a5a3;
+    background-color: #272727;
+}
+
+/* Remove o margin-right do último a */
+.aa {
+    margin-right: 0px;
+}
+
+nav a:hover {
+    color: rgb(136, 57, 73);
+}
+
+.capa img {
+    width: 1070px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 20px auto;
+
+}
+
+.container-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.container-box div {
+    /* Está servindo para alinhar os elementos por cima da imagem */
+    position: relative;
+}
+
+.box {
+    margin: 0px 10px;
+}
+
+.box label {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 300px;
+    text-align: center;
+    background-color: hsla(0, 3%, 6%, 0.63);
+    color: #ffffff;
+}
+
+.box .free {
+    position: absolute;
+    width: 40px;
+    top: 0px;
+    left: 280px;
+}
+
+.box button {
+    left: 0px;
+    padding: 0.4rem;
+    border-color: #3d3b3b;
+    background-color: #3d3b3b;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.box p {
+    left: 0px;
+    color: #181010;
+    width: 300px;
+    margin-top: 0;
+}
+
+.box h3 {
+    left: 0px;
+    color: #181010;
+}
+
+.box button:hover {
+    color: rgba(202, 157, 157, 0.897)
+}
+
+
+footer {
+    padding: 25px;
+    background-color: #b92519;
+    text-align: center;
+    width: 900px;
+    margin: 0 auto;
+    border-radius: 20px 20px 0px 0px;
+}
+
+footer a {
+    color: #f0f0ec;
+    text-decoration: none;
+
+}
+
+footer a:hover {
+    color: #181010;
+}
+
+footer a::after {
+    color: #f0f0ec;
+    margin: 0 10px 0 10px;
+    content: "|";
+}
