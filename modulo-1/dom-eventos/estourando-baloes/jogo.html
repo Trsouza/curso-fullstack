@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Estourando balões</title>
+</head>
+
+<body onload="iniciaJogo()">
+	<!-- // onload, após o carregamento da página a função iniciaJogo é chamada -->
+	<div class="cabecalho">
+
+		<h1>Jogo Estoura Balões</h1>
+		<h2 id="nivel"> </h2>
+
+	</div>
+
+	<div class="box-jogo">
+		<div class="box-placar">
+			<table>
+				<tr>
+					<td>
+						<img src="img/balao_azul_grande.png" />
+						<span id="baloesInteiros"></span>
+					</td>
+
+				</tr>
+			</table>
+			<br />
+			<table>
+				<tr>
+					<td>
+						<img src="img/balao_azul_grande_estourado.png" />
+						<span id="baloesEstourados"></span>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table id=crono>
+				<tr>
+					<td>
+						<span id="cronometro"></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="cenario">
+		</div>
+	</div>
+
+	<script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

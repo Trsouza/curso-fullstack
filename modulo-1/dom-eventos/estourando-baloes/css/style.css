@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+body {
+    text-align: center;
+    font-family: 'Rowdies',
+        sans-serif;
+        background-image: url('../img/background.png');
+}
+
+/*------------ css Index ------------*/
+.box{
+    margin-top: 150px;
+}
+
+/*------------ css Jogo ------------*/
+
+.cabecalho h1 {
+    color: #1d4d27;
+}
+
+.box-jogo {
+    display: flex;
+    justify-content: center;
+}
+
+.box-placar {
+    float: left;
+    width: auto;
+    height: 478px;
+   border: solid 1px hsl(141, 23%, 24%)
+}
+
+span {
+    font-size: 30px;
+}
+
+table {
+    padding-top: 40px;
+}
+
+#crono {
+    width: 140px; height: 132px;
+    background: url('../img/cronometro.png')
+}
+
+#cenario {
+    float: left;
+    width: 600px;
+    height: 478px;
+    background: url('../img/cenario.png');
+    background-position: bottom;
+}
