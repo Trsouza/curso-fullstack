@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+    <title>Eventos de Formulário</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <input class="campo1" type="text">
+
+    <select class="campo2">
+        <option value="1">Primeira opção</option>
+        <option value="2">Segunda opção</option>
+    </select>
+
+    <!-- jquery -->
+    <script src="js/jquery-2.2.1.js"></script>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".campo1").blur(function () {
+            console.log("Elemento perdeu o foco");
+        });
+        $(".campo2").change(function () {
+            alert('O elemento foi trocado');
+        });
+    });
+
+    // focus
+    // blur
+    // change
+
+</script>
