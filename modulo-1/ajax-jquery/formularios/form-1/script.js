@@ -15,19 +15,10 @@ function enviar() {
             alert("Dados inseridos com sucesso!");
         },
         error: function () {
-            alert("Dados não inseridos!");
+            alert("Erro, dados não inseridos!");
         }
     });
 }
-
-// function editar() {
-
-//     $.ajax({
-//         method: "PUT",
-//         url: "http://localhost:3000/users" + id,
-
-//     });
-// }
 
 function deletar() {
     var id = document.getElementById('id').value;
@@ -39,7 +30,7 @@ function deletar() {
             alert("Dados deletados com sucesso! " + id);
         },
         error: function () {
-            alert("Erro, ID não encontrado! " + id);
+            alert("Erro, ID " + id + " não encontrado! ");
         }
     });
 }
@@ -61,6 +52,15 @@ function buscar() {
     });
 }
 
+
+// function editar() {
+
+//     $.ajax({
+//         method: "PUT",
+//         url: "http://localhost:3000/users" + id,
+
+//     });
+// }
 
 
 // function enviar() {
