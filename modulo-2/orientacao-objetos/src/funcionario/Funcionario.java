@@ -13,4 +13,11 @@ public class Funcionario {
 	public void aumentoSalario(double taxa) {
 		this.salarioBruto=this.salarioBruto+ (this.salarioBruto * taxa)/100;
 	}
+	
+	@Override
+	public String toString() {
+		return "Nome: "+nome+"\nSalário bruto: "+salarioBruto+ "\nTaxa: "+desconto;
+	}
+	
+	
 }

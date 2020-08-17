@@ -1,9 +1,12 @@
 package principal;
 
+import java.util.Locale;
 import java.util.Scanner;
 
+import currencyConverter.CurrencyConverter;
 import estudante.Estudante;
 import funcionario.Funcionario;
+import geometria.Circulo;
 import geometria.Retangulo;
 import geometria.Triangulo;
 import produto.Produto;
@@ -11,19 +14,34 @@ import produto.Produto;
 public class Principal {
 
 	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-	
-		Estudante e = new Estudante();
-		System.out.println("Digite o Nome e as 3 Notas: ");
-		e.nome = sc.nextLine();
-		e.nota1 = sc.nextDouble();
-		e.nota2 = sc.nextDouble();
-		e.nota3 = sc.nextDouble();
+//		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);		
+//------------------------------CURRENCYCONVERTER-----------------------------------------
+//		Exemplo utilizando métodos estáticos
+		CurrencyConverter cc = new CurrencyConverter();
+		System.out.println("Qual o valor da cotação e a quantidade de dólares que deseja comprar? ");
+		CurrencyConverter.quotation = sc.nextDouble();
+		CurrencyConverter.dollarValue = sc.nextDouble();
 		
-		System.out.println("\nNota Final = "+e.notaFinal()+"\n"+e.resultado());
+		System.out.println(cc);
+		
+//------------------------------CIRCULO---------------------------------------------------	
+//		Circulo c = new Circulo();
+//		System.out.print("Digite um raio: ");
+//		c.radius = sc.nextDouble();
+//
+//		System.out.println(c);
+	
+//		Estudante e = new Estudante();
+//		System.out.println("Digite o Nome e as 3 Notas: ");
+//		e.nome = sc.nextLine();
+//		e.nota1 = sc.nextDouble();
+//		e.nota2 = sc.nextDouble();
+//		e.nota3 = sc.nextDouble();
+//		
+//		System.out.println("\nNota Final = "+e.notaFinal()+"\n"+e.resultado());
 
-//-------------------------------------RETANGULO-------------------------		
+//-------------------------------------RETANGULO---------------------------------------------		
 //		Retangulo r = new  Retangulo();
 //		System.out.println("Digite a altura e largura do retângulo ");
 //		r.altura = sc.nextDouble();
@@ -33,7 +51,7 @@ public class Principal {
 //		System.out.println("PERÍMETRO = "+r.perimetro());
 //		System.out.println("DIAGONAL = "+r.diagonal());
 		
-//--------------------------------------FUNCIONARIO-------------------------------------		
+//--------------------------------------FUNCIONARIO------------------------------------------		
 //		Funcionario func = new Funcionario();
 //		System.out.println("Digite as informações do funcionário: ");
 //		System.out.print("Nome: ");
@@ -47,9 +65,10 @@ public class Principal {
 //		System.out.println("Digite a taxa de aumento: ");
 //		double taxa = sc.nextDouble();
 //		func.aumentoSalario(taxa);
+//		System.out.println(func);
 //		System.out.println("Empregado: "+func.nome+" , R$ "+func.salarioLiquido());
 		
-//--------------------------------------PRODUTO-------------------------------------		
+//--------------------------------------PRODUTO-----------------------------------------------		
 //		Produto p = new Produto();
 //
 //		System.out.println("Digite o nome e a quantidade de produtos: ");
@@ -75,7 +94,7 @@ public class Principal {
 //		System.out.println("Produto: " + p.nome + " R$ " + p.preco + " " + p.qtd + " unidades " + " Total:  R$"
 //				+ p.totalEstoque());
 		
-//------------------------------------TRIANGULO-----------------------------------		
+//------------------------------------TRIANGULO-----------------------------------------------
 		
 //		 Triangulo x = new Triangulo();
 //			Triangulo y = new Triangulo();
