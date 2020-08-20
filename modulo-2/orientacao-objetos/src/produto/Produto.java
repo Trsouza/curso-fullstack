@@ -17,4 +17,10 @@ public class Produto {
 	public void removeProduto(int qtd) {
 		this.qtd = this.qtd-qtd;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", preco=" + preco + ", qtd=" + qtd + "]";
+	}
+	
 }
