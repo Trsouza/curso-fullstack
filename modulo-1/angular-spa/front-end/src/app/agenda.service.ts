@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AgendaService {
 
-  apiUrl = "http://localhost:8080/agenda"
+  apiUrl = "http://localhost:3000/agenda"
 
   constructor(private httpClient: HttpClient) { }
 
