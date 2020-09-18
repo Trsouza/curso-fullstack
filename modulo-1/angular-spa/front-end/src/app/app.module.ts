@@ -1,12 +1,13 @@
-import { AppRoutingModule } from './app-routing.module';
-import { MenuItem } from 'primeng/api';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MenuItem } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button'
@@ -15,12 +16,11 @@ import { MenubarModule } from 'primeng/menubar';
 // import { MessagesModule } from 'primeng/messages';
 // import { MessageModule } from 'primeng/message';
 
-import { AppComponent } from './app.component';
-import { PainelAgendaComponent } from './painel-agenda/painel-agenda.component';
-import { MenuComponent } from './menu/menu.component';
-import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
-import { ListarClienteComponent } from './listar-cliente/listar-cliente.component';
-import { EditarClienteComponent } from './editar-cliente/editar-cliente.component';
+import { MenuComponent } from './_shared/menu/menu.component';
+import { PainelAgendaComponent } from './_shared/painel-agenda/painel-agenda.component';
+import { CadastroClienteComponent } from './_cliente/cadastro-cliente/cadastro-cliente.component';
+import { ListarClienteComponent } from './_cliente/listar-cliente/listar-cliente.component';
+import { EditarClienteComponent } from './_cliente/editar-cliente/editar-cliente.component';
 // import { MensagemComponent } from './mensagem/mensagem.component'
 @NgModule({
   declarations: [

@@ -1,8 +1,6 @@
-import { Cliente } from './../_models/cliente';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ClienteService } from './../_services/cliente.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from './../../_models/cliente';
+import { ClienteService } from './../../_services/cliente.service';
 
 @Component({
   selector: 'app-listar-cliente',
@@ -36,7 +34,6 @@ export class ListarClienteComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
     this.filtraClientes = this.clientes.filter((cliente: Cliente) => cliente.nome.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase())>-1);
-    // return companies.filter(companies => companies.perusahaan.toLowerCase().indexOf(value) !== -1);
   }
 
   get filter() {

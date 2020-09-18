@@ -1,8 +1,8 @@
-import { Cliente } from './../_models/cliente';
-import { ClienteService } from '../_services/cliente.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Cliente } from './../../_models/cliente';
+import { ClienteService } from './../../_services/cliente.service';
 
 @Component({
   selector: 'app-cadastro-cliente',

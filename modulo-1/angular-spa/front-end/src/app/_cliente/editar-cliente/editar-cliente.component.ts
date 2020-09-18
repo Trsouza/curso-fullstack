@@ -1,8 +1,7 @@
-import { FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ClienteService } from './../_services/cliente.service';
-import { Cliente } from './../_models/cliente';
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from './../../_services/cliente.service';
+import { Cliente } from './../../_models/cliente';
 
 @Component({
   selector: 'app-editar-cliente',

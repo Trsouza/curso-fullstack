@@ -1,5 +1,5 @@
-import { AgendaService } from '../_services/agenda.service';
 import { Component, OnInit } from '@angular/core';
+import { AgendaService } from '../../_services/agenda.service';
 
 @Component({
   selector: 'app-painel-agenda',
