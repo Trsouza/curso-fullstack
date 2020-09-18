@@ -1,4 +1,4 @@
-import { AgendaService } from './../agenda.service';
+import { AgendaService } from '../_services/agenda.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

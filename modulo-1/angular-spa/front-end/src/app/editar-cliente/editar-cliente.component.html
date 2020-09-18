@@ -1,0 +1,49 @@
+<h3 class="container mt-4 mb-4 text-center "> Edição de Cliente</h3>
+<form class="container"(ngSubmit)="atualizaCliente()" *ngIf="cliente">
+    <div class="row">
+        <div class=" col-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" [(ngModel)]="cliente.nome" name="nome" >
+        </div>
+        <div class=" col-6">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" class="form-control" id="sobrenome" [(ngModel)]="cliente.sobrenome" name="sobrenome">
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" id="telefone"  [(ngModel)]="cliente.telefone" name="telefone">
+        </div>
+        <div class=" col-6">
+            <label for="cpf">Cpf</label>
+            <input type="text" class="form-control" id="cpf"  [(ngModel)]="cliente.cpf" name="cpf">
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+            <label for="rg">Rg</label>
+            <input type="text" class="form-control" id="rg"  [(ngModel)]="cliente.rg" name="rg">
+        </div>
+        <div class=" col-6">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"  [(ngModel)]="cliente.email" name="email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <label for="data">Data</label>
+            <input type="date" class="form-control" id="data"  [(ngModel)]="cliente.dataNasci" name="dataNasci">
+        </div>
+        <div class=" col-6">
+            <label for="endereco ">Endereço</label>
+            <input type="text" class="form-control" id="endereco"  [(ngModel)]="cliente.endereco" name="endereco">
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button [routerLink]="['/']" class="btn corPink mr-2" type="button">Voltar</button>
+        <button type="reset" class="btn btn-secondary mr-2">Limpar</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

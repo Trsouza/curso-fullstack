@@ -1,0 +1,56 @@
+<div class="container">
+    <h2 class="text-center mt-3 mb-4"> Clientes </h2>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Filtro</label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="filter" class="form-control" type="text">
+        </div>
+    </div>
+
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Data Nascimento</th>
+                <th>Endereço</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor="let cliente of filtraClientes"> -->
+            <tr *ngFor="let cliente of filtraClientes | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.sobrenome }}</td>
+                <td>{{ cliente.dataNasci| date: 'dd/MM/yyyy'}}</td>
+                <td>{{ cliente.endereco }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefone }}</td>
+                <td>{{ cliente.rg }}</td>
+                <td>{{ cliente.cpf }}</td>
+
+                <td>
+                    <a [routerLink]="['/editar', cliente.id]" class="mb-1 mr-1 btn btn-primary tam">
+                        <i class="pi pi-user-edit "></i>
+                    </a>
+                    <a (click)="excluir(cliente.id)" class="mb-1 btn btn-danger tam">
+                        <i class="pi pi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <div>
+        <ngb-pagination [collectionSize]="filtraClientes.length" [(page)]="page" [pageSize]="pageSize" [maxSize]="3"
+            [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+    <div class="mt-3">
+        <button [routerLink]="['/criar']" class="btn corPink mr-2" type="button">Novo</button>
+    </div>
+</div>

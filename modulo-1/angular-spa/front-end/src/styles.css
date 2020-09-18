@@ -1,5 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-    background-color: #e6cad3;
+    background-color: #f7f0f1c9;
+    /* background-color: #e6cad3; */
+}
+
+.corPink {
+    background-color: #9e0837;
+    color: #ffffff;
+}
+
+.tam{
+    font-size: 0.2rem;
+}
+.tam>i{
+    font-size: .8rem;
+}
+
+td .btn{
+    padding: .1rem.2rem !important;
+}
+
+ul.pagination {
+  justify-content: center;
+}
+
+.page-link {
+    color: #9e0837;
+}    
+
+.page-item.active .page-link {
+  background-color: #9e0837;
+  border-color: #9e0837;
 }
