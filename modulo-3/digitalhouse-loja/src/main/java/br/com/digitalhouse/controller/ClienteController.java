@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.model.Cliente;
+import br.com.digitalhouse.model.Telefone;
 import br.com.digitalhouse.repository.ClienteRepository;
 
 
@@ -33,6 +34,26 @@ public class ClienteController {
 		return clienteRepository.findAll();
 	}
 	
+//	@GetMapping("/tel")
+//	public List<Cliente> listarTelefones() {
+//		return clienteRepository.listarClientesTelefones();
+//	}
+	
+//	@GetMapping("/nome/{nome}")
+//	public List<Cliente> buscarNome(@PathVariable String nome) {
+//		return clienteRepository.buscarNomeRepo(nome);
+//	}
+	
+	@GetMapping("/nome/{nome}")
+	public List<Cliente> buscarNome2(@PathVariable String nome) {
+		return clienteRepository.findByNome(nome);
+	}
+	
+	@GetMapping("/lista-maiores")
+	public List<Cliente> buscarTodosMaioresIdade() {
+		return clienteRepository.maiores();
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscar(@PathVariable Long id) {
 		Optional<Cliente> cliente = clienteRepository.findById(id);
@@ -46,6 +67,9 @@ public class ClienteController {
 	
 	@PostMapping
 	public void salvar(@RequestBody Cliente cliente) {
+		for(Telefone t : cliente.getTelefone()) {
+			t.setCliente(cliente);
+		}
 		clienteRepository.save(cliente);
 	}
 	
@@ -63,7 +87,12 @@ public class ClienteController {
 		cli.setDataNasci(cliente.getDataNasci());
 		cli.setEndereco(cliente.getEndereco());
 		cli.setEmail(cliente.getEmail());
-		cli.setTelefone(cliente.getTelefone());
+		
+		for(Telefone t : cliente.getTelefone()) {
+			t.setCliente(cli);
+			cli.setTelefone(cliente.getTelefone());
+		}
+		
 		cli.setRg(cliente.getRg());
 		cli.setCpf(cliente.getCpf());
 		
