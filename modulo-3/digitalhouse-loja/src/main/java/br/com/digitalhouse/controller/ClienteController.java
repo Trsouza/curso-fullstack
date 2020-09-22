@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Telefone;
 import br.com.digitalhouse.repository.ClienteRepository;
+import br.com.digitalhouse.service.ClienteService;
 
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
-
-
+	
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private ClienteService clienteService;
 
 	@GetMapping
 	public List<Cliente> listar() {
-		return clienteRepository.findAll();
+		return clienteService.listar();
 	}
 	
 //	@GetMapping("/tel")
@@ -46,57 +46,37 @@ public class ClienteController {
 	
 	@GetMapping("/nome/{nome}")
 	public List<Cliente> buscarNome2(@PathVariable String nome) {
-		return clienteRepository.findByNome(nome);
+		return clienteService.buscarNome2(nome);
 	}
 	
 	@GetMapping("/lista-maiores")
 	public List<Cliente> buscarTodosMaioresIdade() {
-		return clienteRepository.maiores();
+		return clienteService.buscarTodosMaioresIdade();
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscar(@PathVariable Long id) {
-		Optional<Cliente> cliente = clienteRepository.findById(id);
-
-		if (cliente.isPresent()) {
-			return ResponseEntity.ok(cliente.get());
-		}
-
-		return ResponseEntity.notFound().build();
+		return clienteService.buscar(id);
 	}
 	
 	@PostMapping
 	public void salvar(@RequestBody Cliente cliente) {
-		for(Telefone t : cliente.getTelefone()) {
-			t.setCliente(cliente);
-		}
-		clienteRepository.save(cliente);
+		clienteService.salvar(cliente);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void remover(@PathVariable Long id) {
-		clienteRepository.deleteById(id);
+		clienteService.remover(id);
 	}
 	
 	@PutMapping("/{id}")
 	public void atualizar(@RequestBody Cliente cliente, @PathVariable Long id) {
-		Cliente cli = clienteRepository.findById(id).get();
-		
-		cli.setNome(cliente.getNome());
-		cli.setSobrenome(cliente.getSobrenome());
-		cli.setDataNasci(cliente.getDataNasci());
-		cli.setEndereco(cliente.getEndereco());
-		cli.setEmail(cliente.getEmail());
-		
-		for(Telefone t : cliente.getTelefone()) {
-			t.setCliente(cli);
-			cli.setTelefone(cliente.getTelefone());
-		}
-		
-		cli.setRg(cliente.getRg());
-		cli.setCpf(cliente.getCpf());
-		
-		clienteRepository.save(cli);		
+		clienteService.atualizar(cliente, id);	
+	}
+	
+	@GetMapping("/{id}/telefones")
+	public List<Telefone> buscarTelefonePorId(@PathVariable Long id) {
+		return clienteService.buscarTelefonePorId(id);
 	}
 
 }

@@ -9,28 +9,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
-@Table
-@Entity(name="telefone")
-public class Telefone {
-	
+@Entity
+@Table(name="cidade")
+public class Cidade {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Long id;
 	
-	@Column 
-	private String numero;
+	@Column(nullable = false)
+	private String nome;
 	
-	@Column
-	private String tipo; 
-
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "cliente_id", nullable=false) //, referencedColumnName="id_cli") 
-	private Cliente cliente;
-	
+	@ManyToOne()
+	@JoinColumn(name = "estado_id", nullable = false)
+	private Estado estado;
 }

@@ -24,5 +24,10 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 //	@Query(value = "select * FROM Cliente INNER JOIN Telefone on Cliente.id_cli=Telefone.id", nativeQuery=true)
 //	List<Cliente> listarClientesTelefones();
+	
+	// telefone é o nome da variável que está na classe cliente
+	// Cliente é o próprio nome da classe
+	@Query("select telefone from Cliente c where c.id_cli = :id")
+	List<Telefone> buscarTelefonePorId(Long id);
 
 }
