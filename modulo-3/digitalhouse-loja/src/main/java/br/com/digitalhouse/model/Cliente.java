@@ -18,10 +18,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="cliente")
 public class Cliente {
 	
@@ -35,11 +41,11 @@ public class Cliente {
 	
 //	@JsonIgnore
 	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
-	private List<Telefone> telefone = new ArrayList<Telefone>();
+	private List<Telefone> telefones = new ArrayList<Telefone>();
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "data_nasc")
-	private Date dataNasci;
+	private Date dataNasc;
 	@Column 
 	private String cpf;
 	@Column 

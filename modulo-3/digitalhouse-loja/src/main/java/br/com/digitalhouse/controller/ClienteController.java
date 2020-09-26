@@ -3,6 +3,7 @@ package br.com.digitalhouse.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +24,7 @@ import br.com.digitalhouse.service.ClienteService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/cliente")
 public class ClienteController {
 	
 	@Autowired
@@ -56,7 +57,13 @@ public class ClienteController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscar(@PathVariable Long id) {
-		return clienteService.buscar(id);
+		Optional<Cliente> cliente = clienteService.buscar(id);
+	
+		if (cliente.isPresent()) {
+			return ResponseEntity.ok(cliente.get());
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 	
 	@PostMapping
@@ -70,8 +77,17 @@ public class ClienteController {
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@RequestBody Cliente cliente, @PathVariable Long id) {
-		clienteService.atualizar(cliente, id);	
+	public ResponseEntity<?> atualizar(@RequestBody Cliente cliente, @PathVariable Long id) {
+		
+		Cliente clienteAtual = clienteService.buscar(id).orElse(null);
+		
+		if (clienteAtual != null) {
+			BeanUtils.copyProperties(cliente, clienteAtual, "id");
+			
+			clienteService.salvar(clienteAtual);
+			return ResponseEntity.ok(clienteAtual);
+		}		
+		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/{id}/telefones")

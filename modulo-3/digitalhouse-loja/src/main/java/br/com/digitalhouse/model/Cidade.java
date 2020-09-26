@@ -1,5 +1,6 @@
 package br.com.digitalhouse.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Cidade {
 	@Column(nullable = false)
 	private String nome;
 	
-	@ManyToOne()
+	@ManyToOne//(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "estado_id", nullable = false)
 	private Estado estado;
 }

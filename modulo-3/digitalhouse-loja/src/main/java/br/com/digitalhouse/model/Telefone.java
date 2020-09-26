@@ -1,5 +1,6 @@
 package br.com.digitalhouse.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Telefone {
 	private String tipo; 
 
 	@JsonIgnore
-	@ManyToOne
+	@ManyToOne//(cascade=CascadeType.PERSIST)
 	@JoinColumn(name = "cliente_id", nullable=false) //, referencedColumnName="id_cli") 
 	private Cliente cliente;
 	

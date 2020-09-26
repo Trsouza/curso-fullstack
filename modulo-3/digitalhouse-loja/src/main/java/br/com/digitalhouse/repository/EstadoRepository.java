@@ -8,4 +8,5 @@ import br.com.digitalhouse.model.Estado;
 @Repository
 public interface EstadoRepository extends JpaRepository<Estado, Long> {
 
+
 }

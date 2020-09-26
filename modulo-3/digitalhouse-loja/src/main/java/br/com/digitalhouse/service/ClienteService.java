@@ -6,9 +6,11 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import br.com.digitalhouse.exception.ClienteNaoEncontradodException;
 import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Telefone;
 import br.com.digitalhouse.repository.CidadeRepository;
@@ -37,14 +39,8 @@ public class ClienteService {
 		return clienteRepository.maiores();
 	}
 
-	public ResponseEntity<Cliente> buscar(Long id) {
-		Optional<Cliente> cliente = clienteRepository.findById(id);
-
-		if (cliente.isPresent()) {
-			return ResponseEntity.ok(cliente.get());
-		}
-
-		return ResponseEntity.notFound().build();
+	public Optional<Cliente> buscar(Long id) {
+		return clienteRepository.findById(id);
 	}
 
 	@Transactional
@@ -57,37 +53,54 @@ public class ClienteService {
 		estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
 	    cidadeRepository.save(cliente.getEndereco().getCidade());
 		
-		cliente.getTelefone().stream().
+		cliente.getTelefones().stream().
 				forEach(telefone -> telefone.setCliente(cliente));
 		
 		
 		clienteRepository.save(cliente);	
 	}
 
+//	@Transactional
+//	public void remover(Long id) {
+//		clienteRepository.deleteById(id);
+//	}
+	
 	@Transactional
 	public void remover(Long id) {
-		clienteRepository.deleteById(id);
+		
+		try {
+			clienteRepository.deleteById(id);
+			clienteRepository.flush();
+		
+		} catch (EmptyResultDataAccessException e) {
+			throw new ClienteNaoEncontradodException(id);
+		};			
 	}
 
 	@Transactional
-	public void atualizar(Cliente cliente, Long id) {
-		Cliente cli = clienteRepository.findById(id).get();
-
-		cli.setNome(cliente.getNome());
-		cli.setSobrenome(cliente.getSobrenome());
-		cli.setDataNasci(cliente.getDataNasci());
-		cli.setEndereco(cliente.getEndereco());
-		cli.setEmail(cliente.getEmail());
-
-		for (Telefone t : cliente.getTelefone()) {
-			t.setCliente(cli);
-			cli.setTelefone(cliente.getTelefone());
-		}
-
-		cli.setRg(cliente.getRg());
-		cli.setCpf(cliente.getCpf());
-
-		clienteRepository.save(cli);
+	public void atualizar(Cliente cliente) {
+//		Cliente cli = clienteRepository.findById(id).get();
+//
+//		cli.setNome(cliente.getNome());
+//		cli.setSobrenome(cliente.getSobrenome());
+//		cli.setDataNasci(cliente.getDataNasci());
+//		cli.setEndereco(cliente.getEndereco());
+//		cli.setEmail(cliente.getEmail());
+//
+//		for (Telefone t : cliente.getTelefone()) {
+//			t.setCliente(cli);
+//			cli.setTelefone(cliente.getTelefone());
+//		}
+//
+//		cli.setRg(cliente.getRg());
+//		cli.setCpf(cliente.getCpf());
+//
+//		clienteRepository.save(cli);
+		
+	    cliente.getTelefones().stream().
+		forEach(telefone -> telefone.setCliente(cliente));	
+				
+		clienteRepository.save(cliente);	
 	}
 
 	public List<Telefone> buscarTelefonePorId(Long id) {

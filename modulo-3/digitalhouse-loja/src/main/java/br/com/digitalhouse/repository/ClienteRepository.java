@@ -18,7 +18,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	List<Cliente> findByNome(String nome);
 
 	//@Query("FROM Cliente where (TIMESTAMPDIFF(YEAR, dataNasci, CURRENT_DATE)) >=18")
-	@Query("from Cliente where (YEAR(FROM_DAYS(DATEDIFF(CURRENT_DATE, dataNasci)))) >=18")
+	@Query("from Cliente where (YEAR(FROM_DAYS(DATEDIFF(CURRENT_DATE, dataNasc)))) >=18")
 	List<Cliente> maiores();
 
 
@@ -27,7 +27,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	// telefone é o nome da variável que está na classe cliente
 	// Cliente é o próprio nome da classe
-	@Query("select telefone from Cliente c where c.id_cli = :id")
+	@Query("select telefones from Cliente c where c.id_cli = :id")
 	List<Telefone> buscarTelefonePorId(Long id);
 
 }
