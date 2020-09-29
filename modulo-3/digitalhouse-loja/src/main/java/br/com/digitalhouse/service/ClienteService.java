@@ -7,15 +7,17 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import br.com.digitalhouse.dto.ClienteDTO;
 import br.com.digitalhouse.exception.ClienteNaoEncontradodException;
+import br.com.digitalhouse.mapper.ClienteMapper;
 import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Telefone;
 import br.com.digitalhouse.repository.CidadeRepository;
 import br.com.digitalhouse.repository.ClienteRepository;
 import br.com.digitalhouse.repository.EstadoRepository;
+import br.com.digitalhouse.request.ClienteRequest;
 
 @Service
 public class ClienteService {
@@ -26,6 +28,8 @@ public class ClienteService {
 	private CidadeRepository cidadeRepository;
 	@Autowired
 	private EstadoRepository estadoRepository;
+	@Autowired
+	private ClienteMapper clienteMapper;
 
 	public List<Cliente> listar() {
 		return clienteRepository.findAll();
@@ -44,20 +48,20 @@ public class ClienteService {
 	}
 
 	@Transactional
-	public void salvar(Cliente cliente) {
-//		cliente.getTelefone().stream().forEach(telefone -> telefone.setCliente(cliente));
+	public ClienteDTO salvar(ClienteRequest clienteRequest) {
+
+		Cliente cliente = clienteMapper.dtoRequestToModel(clienteRequest);
+//		cliente.setDataNasc(LocalDate.now());
 		
-//		for (Telefone t : cliente.getTelefone()) {
-//			t.setCliente(cliente);
-//		}
-		estadoRepository.save(cliente.getEndereco().getCidade().getEstado());
-	    cidadeRepository.save(cliente.getEndereco().getCidade());
+		if(clienteRequest.getEndereco().getCidade().getEstado().getId() == null) {
+			estadoRepository.save(clienteRequest.getEndereco().getCidade().getEstado());
+		    cidadeRepository.save(clienteRequest.getEndereco().getCidade());
+		}
 		
-		cliente.getTelefones().stream().
+		clienteRequest.getTelefones().stream().
 				forEach(telefone -> telefone.setCliente(cliente));
 		
-		
-		clienteRepository.save(cliente);	
+		return clienteMapper.modelDTO(clienteRepository.save(cliente));
 	}
 
 //	@Transactional
@@ -67,7 +71,6 @@ public class ClienteService {
 	
 	@Transactional
 	public void remover(Long id) {
-		
 		try {
 			clienteRepository.deleteById(id);
 			clienteRepository.flush();

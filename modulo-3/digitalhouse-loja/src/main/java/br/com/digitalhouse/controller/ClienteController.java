@@ -3,8 +3,11 @@ package br.com.digitalhouse.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.digitalhouse.dto.ClienteDTO;
 import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Telefone;
 import br.com.digitalhouse.repository.ClienteRepository;
+import br.com.digitalhouse.request.ClienteRequest;
 import br.com.digitalhouse.service.ClienteService;
 
 
@@ -67,8 +72,13 @@ public class ClienteController {
 	}
 	
 	@PostMapping
-	public void salvar(@RequestBody Cliente cliente) {
-		clienteService.salvar(cliente);
+	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteRequest clienteRequest) {
+		try {
+			ClienteDTO cliente = clienteService.salvar(clienteRequest);
+			return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+		}catch(Exception ex){
+			return  ResponseEntity.badRequest().body(ex.getMessage());
+		}
 	}
 	
 	@DeleteMapping("/{id}")
@@ -77,14 +87,14 @@ public class ClienteController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody Cliente cliente, @PathVariable Long id) {
+	public ResponseEntity<?> atualizar(@RequestBody @Valid ClienteRequest cliente, @PathVariable Long id) {
 		
 		Cliente clienteAtual = clienteService.buscar(id).orElse(null);
 		
 		if (clienteAtual != null) {
 			BeanUtils.copyProperties(cliente, clienteAtual, "id");
 			
-			clienteService.salvar(clienteAtual);
+			clienteService.atualizar(clienteAtual);
 			return ResponseEntity.ok(clienteAtual);
 		}		
 		return ResponseEntity.notFound().build();

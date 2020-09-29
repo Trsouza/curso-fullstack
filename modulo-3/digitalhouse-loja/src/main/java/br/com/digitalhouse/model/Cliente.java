@@ -1,5 +1,6 @@
 package br.com.digitalhouse.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,7 +46,7 @@ public class Cliente {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "data_nasc")
-	private Date dataNasc;
+	private LocalDate dataNasc;
 	@Column 
 	private String cpf;
 	@Column 
