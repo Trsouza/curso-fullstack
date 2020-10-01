@@ -1,19 +1,12 @@
 package br.com.digitalhouse.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.digitalhouse.model.Cliente;
+import java.util.List;
 import br.com.digitalhouse.model.Estado;
-import br.com.digitalhouse.model.Telefone;
-import br.com.digitalhouse.repository.CidadeRepository;
-import br.com.digitalhouse.repository.ClienteRepository;
 import br.com.digitalhouse.repository.EstadoRepository;
 
 @Service
