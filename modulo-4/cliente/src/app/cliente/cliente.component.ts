@@ -101,7 +101,10 @@ export class ClienteComponent implements OnInit {
           complemento: this.formulario.value.complemento,
           bairro: this.formulario.value.bairro,
           cidade: {
-            id: this.formulario.value.cidade
+            id: this.formulario.value.cidade,
+            estado: {
+              id: this.formulario.value.estado
+            }
           }
         },
         foto: {
