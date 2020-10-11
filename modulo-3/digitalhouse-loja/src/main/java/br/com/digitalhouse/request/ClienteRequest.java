@@ -4,10 +4,12 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.digitalhouse.model.Endereco;
+import br.com.digitalhouse.model.Imagem;
 import br.com.digitalhouse.model.Telefone;
 import lombok.Data;
 
@@ -23,6 +25,8 @@ public class ClienteRequest {
 	private String cpf;
 	@NotBlank
 	private String rg;
+	@Email
 	private String email;
 	private Endereco endereco;
+	private Imagem imagem;
 }

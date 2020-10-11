@@ -20,4 +20,5 @@ public class ClienteDTO {
 	private String rg; 
 	private String email;
 	private Endereco endereco;
+	private ImagemDTO imagem;
 }

@@ -8,7 +8,9 @@ export interface ClienteModel {
     rg?: string;
     email?: string;
     endereco?: EnderecoModel;
+    foto?: any;
 }
+
 export interface EnderecoModel {
     cep?: string;
     logradouro?: string;
@@ -17,11 +19,13 @@ export interface EnderecoModel {
     bairro?: string;
     cidade?: CidadeModel;
 }
+
 export interface CidadeModel {
     id?: number;
     nome?: string;
     estado?: EstadoModel;
 }
+
 export interface EstadoModel {
     id?: number;
     nome?: string;

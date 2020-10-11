@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.model.Cidade;
-import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Estado;
 import br.com.digitalhouse.repository.EstadoRepository;
 import br.com.digitalhouse.service.EstadoService;
@@ -33,6 +32,11 @@ public class EstadoController {
 	@PostMapping
 	public void salvar(@RequestBody Estado estado) {
 		estadoService.salvar(estado);
+	}
+	
+	@GetMapping("/{id}/cidades")
+	public List<Cidade> listarCidadesPorEstado(@PathVariable Long id){
+		return estadoService.buscarCidades(id);
 	}
 
 }

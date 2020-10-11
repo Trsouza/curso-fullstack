@@ -64,11 +64,6 @@ public class ClienteService {
 		return clienteMapper.modelDTO(clienteRepository.save(cliente));
 	}
 
-//	@Transactional
-//	public void remover(Long id) {
-//		clienteRepository.deleteById(id);
-//	}
-	
 	@Transactional
 	public void remover(Long id) {
 		try {
@@ -101,8 +96,7 @@ public class ClienteService {
 //		clienteRepository.save(cli);
 		
 	    cliente.getTelefones().stream().
-		forEach(telefone -> telefone.setCliente(cliente));	
-				
+		forEach(telefone -> telefone.setCliente(cliente));		
 		clienteRepository.save(cliente);	
 	}
 

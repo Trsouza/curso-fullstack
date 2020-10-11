@@ -22,19 +22,24 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.digitalhouse.dto.ClienteDTO;
 import br.com.digitalhouse.model.Cliente;
 import br.com.digitalhouse.model.Telefone;
+import br.com.digitalhouse.open.api.ClienteControllerOpenAPI;
 import br.com.digitalhouse.repository.ClienteRepository;
 import br.com.digitalhouse.request.ClienteRequest;
 import br.com.digitalhouse.service.ClienteService;
+import io.swagger.annotations.Api;
 
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/cliente")
-public class ClienteController {
+@Api(tags = "Controller de Cliente")
+public class ClienteController implements ClienteControllerOpenAPI {
 	
 	@Autowired
 	private ClienteService clienteService;
 
+
+	@Override
 	@GetMapping
 	public List<Cliente> listar() {
 		return clienteService.listar();
@@ -60,6 +65,7 @@ public class ClienteController {
 		return clienteService.buscarTodosMaioresIdade();
 	}
 	
+	@Override
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscar(@PathVariable Long id) {
 		Optional<Cliente> cliente = clienteService.buscar(id);
@@ -71,8 +77,9 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@Override
 	@PostMapping
-	public ResponseEntity<?> salvar(@RequestBody @Valid ClienteRequest clienteRequest) {
+	public ResponseEntity<?> salvar(@RequestBody ClienteRequest clienteRequest) {
 		try {
 			ClienteDTO cliente = clienteService.salvar(clienteRequest);
 			return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
@@ -81,14 +88,23 @@ public class ClienteController {
 		}
 	}
 	
+	@Override
 	@DeleteMapping("/{id}")
-	public void remover(@PathVariable Long id) {
-		clienteService.remover(id);
+	public ResponseEntity<Cliente> remover(@PathVariable Long id) {
+		try {
+			clienteService.remover(id);
+			return ResponseEntity.noContent().build();
+		} catch (Exception e) {
+			return ResponseEntity.notFound().build();
+		}
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.CONFLICT).build();
+//		}
 	}
 	
+	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<?> atualizar(@RequestBody @Valid ClienteRequest cliente, @PathVariable Long id) {
-		
+	public ResponseEntity<?> atualizar(@RequestBody ClienteRequest cliente, @PathVariable Long id) {	
 		Cliente clienteAtual = clienteService.buscar(id).orElse(null);
 		
 		if (clienteAtual != null) {
@@ -100,6 +116,7 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
+	@Override
 	@GetMapping("/{id}/telefones")
 	public List<Telefone> buscarTelefonePorId(@PathVariable Long id) {
 		return clienteService.buscarTelefonePorId(id);
